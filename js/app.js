@@ -2,7 +2,7 @@
 
 const MAP_STYLES = {
   dark: "https://tiles.openfreemap.org/styles/dark",
-  light: "https://tiles.openfreemap.org/styles/bright"
+  light: "https://tiles.openfreemap.org/styles/bright",
 };
 
 function getSavedTheme() {
@@ -30,7 +30,7 @@ function updateThemeButton() {
   label.textContent = isDark ? "حالت روز" : "حالت شب";
   button.setAttribute(
     "aria-label",
-    isDark ? "تغییر به حالت روز" : "تغییر به حالت شب"
+    isDark ? "تغییر به حالت روز" : "تغییر به حالت شب",
   );
   button.setAttribute("aria-pressed", String(!isDark));
 }
@@ -46,7 +46,7 @@ function applyTheme(theme, changeMap = true) {
   } catch {
     // ادامه کار بدون ذخیره‌سازی
   }
-
+}
 applyTheme(currentTheme, false);
 
 document.querySelector("#themeToggle")?.addEventListener("click", () => {
@@ -65,7 +65,7 @@ const cities = [
     image: "./assets/images/tehran.jpg",
     coordinates: [51.389, 35.689],
     zoom: 10,
-    category: "پایتخت ایران"
+    category: "پایتخت ایران",
   },
   {
     id: "isfahan",
@@ -76,40 +76,43 @@ const cities = [
     image: "./assets/images/isfahan.jpg",
     coordinates: [51.677, 32.654],
     zoom: 10,
-    category: "شهر تاریخی"
+    category: "شهر تاریخی",
   },
   {
     id: "shiraz",
     name: "شیراز",
     province: "استان فارس",
     region: "جنوب ایران",
-    description: "شهر شعر و باغ‌های ایرانی؛ میزبان حافظیه، سعدیه و جاذبه‌های تاریخی.",
+    description:
+      "شهر شعر و باغ‌های ایرانی؛ میزبان حافظیه، سعدیه و جاذبه‌های تاریخی.",
     image: "./assets/images/shiraz.jpg",
     coordinates: [52.531, 29.592],
     zoom: 10,
-    category: "شهر فرهنگ و شعر"
+    category: "شهر فرهنگ و شعر",
   },
   {
     id: "yazd",
     name: "یزد",
     province: "استان یزد",
     region: "مرکز ایران",
-    description: "شهر بادگیرها، خانه‌های خشتی و کوچه‌های تاریخی با معماری کویری.",
+    description:
+      "شهر بادگیرها، خانه‌های خشتی و کوچه‌های تاریخی با معماری کویری.",
     image: "./assets/images/yazd.jpg",
     coordinates: [54.367, 31.897],
     zoom: 10,
-    category: "شهر کویری"
+    category: "شهر کویری",
   },
   {
     id: "tabriz",
     name: "تبریز",
     province: "استان آذربایجان شرقی",
     region: "شمال غرب ایران",
-    description: "شهری با پیشینه تاریخی غنی، بازار سرپوشیده و فرهنگ آذربایجانی.",
+    description:
+      "شهری با پیشینه تاریخی غنی، بازار سرپوشیده و فرهنگ آذربایجانی.",
     image: "./assets/images/tabriz.jpg",
-    coordinates: [46.291, 38.080],
+    coordinates: [46.291, 38.08],
     zoom: 10,
-    category: "شهر تاریخی"
+    category: "شهر تاریخی",
   },
   {
     id: "rasht",
@@ -118,82 +121,81 @@ const cities = [
     region: "شمال ایران",
     description: "شهری سرسبز در شمال ایران، با بازار محلی و غذاهای گیلانی.",
     image: "./assets/images/rasht.jpg",
-    coordinates: [49.589, 37.280],
+    coordinates: [49.589, 37.28],
     zoom: 10,
-    category: "شهر بارانی"
+    category: "شهر بارانی",
   },
   {
     id: "babol",
     name: "بابل",
     province: "استان مازندران",
     region: "شمال ایران",
-    description: "شهری سرسبز در مازندران، نزدیک جنگل‌های هیرکانی و جاذبه‌های طبیعی شمال ایران.",
+    description:
+      "شهری سرسبز در مازندران، نزدیک جنگل‌های هیرکانی و جاذبه‌های طبیعی شمال ایران.",
     image: "./assets/images/babol.jpg",
     coordinates: [52.687, 36.551],
     zoom: 10,
-    category: "شهر شمالی"
+    category: "شهر شمالی",
   },
   {
     id: "kerman",
     name: "کرمان",
     province: "استان کرمان",
     region: "جنوب شرق ایران",
-    description: "شهری تاریخی با بازار قدیمی، بناهای سنتی و دسترسی به جاذبه‌های کویری.",
+    description:
+      "شهری تاریخی با بازار قدیمی، بناهای سنتی و دسترسی به جاذبه‌های کویری.",
     image: "./assets/images/kerman.jpg",
     coordinates: [57.078, 30.283],
     zoom: 10,
-    category: "شهر تاریخی"
+    category: "شهر تاریخی",
   },
   {
     id: "kermanshah",
     name: "کرمانشاه",
     province: "استان کرمانشاه",
     region: "غرب ایران",
-    description: "شهری باستانی در غرب ایران، نزدیک آثار تاریخی طاق‌بستان و بیستون.",
+    description:
+      "شهری باستانی در غرب ایران، نزدیک آثار تاریخی طاق‌بستان و بیستون.",
     image: "./assets/images/kermanshah.jpg",
     coordinates: [47.065, 34.314],
     zoom: 10,
-    category: "شهر تاریخی"
+    category: "شهر تاریخی",
   },
   {
     id: "kish",
     name: "کیش",
     province: "استان هرمزگان",
     region: "جنوب ایران",
-    description: "جزیره‌ای در خلیج فارس با سواحل زیبا، تفریحات دریایی و جاذبه‌های گردشگری.",
+    description:
+      "جزیره‌ای در خلیج فارس با سواحل زیبا، تفریحات دریایی و جاذبه‌های گردشگری.",
     image: "./assets/images/kish.jpg",
-    coordinates: [53.980, 26.533],
+    coordinates: [53.98, 26.533],
     zoom: 11,
-    category: "جزیره گردشگری"
+    category: "جزیره گردشگری",
   },
   {
-  id: "mashhad",
-  name: "مشهد",
-  province: "خراسان رضوی",
-  coordinates: [59.6168, 36.2605],
-  description: "مشهد، شهر زیارت و فرهنگ؛ میزبان حرم امام رضا (ع) و جاذبه‌های تاریخی و طبیعی خراسان رضوی.",
-  image: "assets/images/mashhad.jpg",
-  attractions: [
-    "حرم امام رضا (ع)",
-    "آرامگاه فردوسی",
-    "کوهسنگی",
-    "طرقبه و شاندیز"
-  ]
-},
+    id: "mashhad",
+    name: "مشهد",
+    province: "خراسان رضوی",
+    coordinates: [59.6168, 36.2605],
+    description:
+      "مشهد، شهر زیارت و فرهنگ؛ میزبان حرم امام رضا (ع) و جاذبه‌های تاریخی و طبیعی خراسان رضوی.",
+    image: "assets/images/mashhad.jpg",
+    attractions: [
+      "حرم امام رضا (ع)",
+      "آرامگاه فردوسی",
+      "کوهسنگی",
+      "طرقبه و شاندیز",
+    ],
+  },
 ];
 
 // فقط این پنج شهر در فهرست «شهرهای منتخب» نمایش داده می‌شوند.
-const featuredCityNames = [
-  "تهران",
-  "اصفهان",
-  "شیراز",
-  "یزد",
-  "تبریز"
-];
+const featuredCityNames = ["تهران", "اصفهان", "شیراز", "یزد", "تبریز"];
 
 const IRAN_BOUNDS = [
   [44.0, 25.0],
-  [63.5, 40.5]
+  [63.5, 40.5],
 ];
 
 let selectedCityId = "tehran";
@@ -207,10 +209,12 @@ function renderCityList() {
   if (!list) return;
 
   const featuredCities = cities.filter((city) =>
-    featuredCityNames.includes(city.name)
+    featuredCityNames.includes(city.name),
   );
 
-  list.innerHTML = featuredCities.map((city, index) => `
+  list.innerHTML = featuredCities
+    .map(
+      (city, index) => `
     <button
       class="city-list-item ${city.id === selectedCityId ? "active" : ""}"
       type="button"
@@ -226,7 +230,9 @@ function renderCityList() {
 
       <span class="list-arrow" aria-hidden="true">↙</span>
     </button>
-  `).join("");
+  `,
+    )
+    .join("");
 }
 
 // ساخت کارت‌های همه شهرها
@@ -235,7 +241,9 @@ function renderCityCards() {
   const container = $("#cityCards");
   if (!container) return;
 
-  container.innerHTML = cities.map((city) => `
+  container.innerHTML = cities
+    .map(
+      (city) => `
     <article
       class="city-card ${city.id === selectedCityId ? "active" : ""}"
       data-city="${city.id}"
@@ -262,12 +270,12 @@ function renderCityCards() {
         </div>
       </div>
     </article>
-  `).join("");
+  `,
+    )
+    .join("");
 
   updateCityCardsVisibility();
 }
-
-
 
 function updateCityCardsVisibility() {
   const container = $("#cityCards");
@@ -275,15 +283,11 @@ function updateCityCardsVisibility() {
 
   if (!container || !button) return;
 
-  const cards = Array.from(
-    container.querySelectorAll(".city-card")
-  );
+  const cards = Array.from(container.querySelectorAll(".city-card"));
 
   const gridColumns = getComputedStyle(container)
-    .gridTemplateColumns
-    .split(/\s+/)
-    .filter(Boolean)
-    .length;
+    .gridTemplateColumns.split(/\s+/)
+    .filter(Boolean).length;
 
   const visibleCount = Math.max(1, gridColumns) * 2;
   const shouldAnimate = showAllCities;
@@ -314,13 +318,8 @@ function updateCityCardsVisibility() {
   button.hidden = cards.length <= visibleCount;
   button.textContent = showAllCities ? "نمایش کمتر" : "نمایش بیشتر";
 
-  button.setAttribute(
-    "aria-expanded",
-    String(showAllCities)
-  );
+  button.setAttribute("aria-expanded", String(showAllCities));
 }
-
-
 
 // به‌روزرسانی تصویر شهر انتخاب‌شده
 function updateSelectedImage(city) {
@@ -391,7 +390,7 @@ function selectCity(cityId, shouldFly = true) {
       zoom: city.zoom,
       speed: 0.9,
       curve: 1.35,
-      essential: true
+      essential: true,
     });
   }
 }
@@ -411,10 +410,10 @@ function resetMapView() {
         top: 70,
         right: 55,
         bottom: 65,
-        left: 55
+        left: 55,
       },
       duration: 1000,
-      maxZoom: 5.2
+      maxZoom: 5.2,
     });
   }
 }
@@ -426,7 +425,10 @@ function createCityMarker(city) {
   markerElement.className = "city-marker";
   markerElement.type = "button";
   markerElement.setAttribute("aria-label", `نمایش ${city.name} روی نقشه`);
-  markerElement.setAttribute("aria-pressed", String(city.id === selectedCityId));
+  markerElement.setAttribute(
+    "aria-pressed",
+    String(city.id === selectedCityId),
+  );
   markerElement.title = city.name;
   markerElement.dir = "rtl";
 
@@ -443,7 +445,7 @@ function createCityMarker(city) {
 
   const marker = new maplibregl.Marker({
     element: markerElement,
-    anchor: "bottom"
+    anchor: "bottom",
   })
     .setLngLat(city.coordinates)
     .addTo(map);
@@ -466,10 +468,7 @@ function hideBaseMapSymbols() {
       try {
         map.setLayoutProperty(layer.id, "visibility", "none");
       } catch (error) {
-        console.warn(
-          `امکان مخفی‌کردن لایه ${layer.id} وجود نداشت.`,
-          error
-        );
+        console.warn(`امکان مخفی‌کردن لایه ${layer.id} وجود نداشت.`, error);
       }
     }
   });
@@ -497,16 +496,15 @@ function initializeMap() {
     zoom: 4.25,
     minZoom: 3,
     maxZoom: 16,
-    attributionControl: true
+    attributionControl: true,
   });
-
 
   map.addControl(
     new maplibregl.NavigationControl({
       showCompass: true,
-      showZoom: true
+      showZoom: true,
     }),
-    "bottom-left"
+    "bottom-left",
   );
 
   map.on("load", () => {
@@ -522,10 +520,10 @@ function initializeMap() {
         top: 70,
         right: 55,
         bottom: 65,
-        left: 55
+        left: 55,
       },
       duration: 800,
-      maxZoom: 5.2
+      maxZoom: 5.2,
     });
   });
 
@@ -560,7 +558,6 @@ if (resetButton) {
   resetButton.addEventListener("click", resetMapView);
 }
 
-
 const showMoreButton = $("#showMoreCities");
 
 if (showMoreButton) {
@@ -574,7 +571,6 @@ if (showMoreButton) {
 window.addEventListener("resize", () => {
   updateCityCardsVisibility();
 });
-
 
 // راه‌اندازی اولیه صفحه
 renderCityList();
