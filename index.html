@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100b1c">
+  <meta name="description" content="ایرانِ من؛ اطلس تعاملی گردشگری ایران، برای کشف شهرها و جاذبه‌های دیدنی کشور.">
+
+  <title>ایرانِ من | اطلس تعاملی گردشگری ایران</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="صفحه اصلی ایران من">
+      <span class="brand-symbol">ای</span>
+      <span class="brand-text">
+        <strong>ایرانِ من</strong>
+        <small>اطلس تعاملی گردشگری</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="منوی اصلی">
+      <a class="nav-link active" href="#atlas">اطلس ایران</a>
+      <a class="nav-link" href="#destinations">مقصدها</a>
+      <a class="nav-link" href="#about">درباره پروژه</a>
+    </nav>
+    <button
+      id="themeToggle"
+      class="theme-toggle"
+      type="button"
+      aria-label="تغییر به حالت روز"
+      aria-pressed="false"
+    >
+      <span id="themeIcon" aria-hidden="true">☀</span>
+      <span id="themeLabel">حالت روز</span>
+    </button>
+    <a class="header-action" href="#destinations">کشف ایران <span>↙</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> ایران را دوباره کشف کن</span>
+        <h1>یک نقشه، هزاران<br><span>داستان برای کشف.</span></h1>
+        <p>
+          از شهرهای تاریخی تا چشم‌اندازهای طبیعی؛ روی نقشه حرکت کن،
+          مقصدت را انتخاب کن و سفر خودت را آغاز کن.
+        </p>
+        <a class="primary-button" href="#atlas">ورود به اطلس <span>←</span></a>
+      </div>
+
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit-center">ایران</div>
+        <span class="orbit-point point-one"></span>
+        <span class="orbit-point point-two"></span>
+        <span class="orbit-point point-three"></span>
+      </div>
+    </section>
+
+    <section class="atlas-section" id="atlas">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">INTERACTIVE ATLAS</span>
+          <h2>اطلس تعاملی ایران</h2>
+          <p>یک شهر را انتخاب کن یا مستقیماً روی نشانگر آن در نقشه بزن.</p>
+        </div>
+        <span class="live-label"><span></span> نقشه تعاملی</span>
+      </div>
+
+      <div class="atlas-layout">
+        <aside class="city-sidebar">
+          <div class="sidebar-heading">
+            <div>
+              <span class="eyebrow">DESTINATIONS</span>
+              <h3>مقصدهای منتخب</h3>
+            </div>
+            <span class="city-count">۰۵ شهر</span>
+          </div>
+
+          <div id="cityList" class="city-list"></div>
+
+          <div class="selected-city-card">
+            <div class="selected-city-art">
+              <img id="selectedCityImage" src="./assets/images/tehran.jpg" alt="تصویر تهران">
+              <span class="image-overlay"></span>
+              <span id="selectedCityCategory" class="image-tag">پایتخت ایران</span>
+            </div>
+
+            <div class="selected-city-content">
+              <span class="eyebrow">مقصد انتخاب‌شده</span>
+              <h3 id="selectedCityName">تهران</h3>
+              <p id="selectedCityDescription">پایتخت ایران؛ شهری پرجنب‌وجوش در دامنه‌های جنوبی البرز.</p>
+
+              <div class="city-meta">
+                <span class="meta-icon">⌖</span>
+                <div>
+                  <strong id="selectedCityProvince">استان تهران</strong>
+                  <small id="selectedCityRegion">شمال مرکزی ایران</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="map-panel">
+          <div class="map-topbar">
+            <div class="map-heading">
+              <span class="map-status-dot"></span>
+              <div>
+                <strong>نقشه ایران</strong>
+                <small>برای مشاهده جزئیات، شهرها را انتخاب کن</small>
+              </div>
+            </div>
+
+            <button id="resetMap" class="reset-button" type="button">
+              <span>↺</span> نمایش کل ایران
+            </button>
+          </div>
+
+          <div class="map-container">
+            <div id="map" role="application" aria-label="نقشه تعاملی ایران"></div>
+            <div class="map-caption">
+              <span class="caption-dot"></span>
+              <span>شهرهای منتخب</span>
+              <span class="caption-divider"></span>
+              <span>برای زوم روی شهر کلیک کن</span>
+            </div>
+          </div>
+
+          <div class="map-footer">
+            <span>ایرانِ من <span class="footer-separator">/</span> اطلس گردشگری</span>
+            <span>نقشه پایه: OpenFreeMap</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="destinations-section" id="destinations">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">CHOOSE YOUR DESTINATION</span>
+          <h2>از کجا شروع کنیم؟</h2>
+          <p>یکی از شهرها را انتخاب کن تا موقعیت آن روی نقشه نمایش داده شود.</p>
+        </div>
+      </div>
+
+      <div id="cityCards" class="city-cards"></div>
+      <button
+        id="showMoreCities"
+        class="show-more-button"
+        type="button"
+        aria-expanded="false"
+      >
+        Show More
+      </button>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-mark">ایرانِ من</div>
+      <div class="about-copy">
+        <h2>ایران، فراتر از یک مقصد</h2>
+        <p>
+          ایرانِ من پروژه‌ای برای کشف جغرافیا، شهرها و جاذبه‌های گردشگری ایران است.
+          این اطلس به‌تدریج گسترش پیدا می‌کند تا مقصدهای بیشتری را در دسترس قرار دهد.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#">ایرانِ من</a>
+    <span>ساخته‌شده برای کشف ایران</span>
+    <a href="#atlas">بازگشت به نقشه ↑</a>
+  </footer>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
