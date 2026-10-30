@@ -57,8 +57,8 @@ Open `index.html` in your browser or run the project using VS Code Live Server.
 
 **ArshamPLUS & GoldenMinerLX**
 
-[GitHub Profile](https://github.com/ArshamPLUS)
-
+[My GitHub Profile](https://github.com/ArshamPLUS)
+[Goldoon's GitHub Profile](https://github.com/GoldenMinerLX)
 ---
 
 <p align="center">
